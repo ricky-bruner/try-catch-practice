@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace tryCatch_practice
@@ -8,7 +9,13 @@ namespace tryCatch_practice
 
         public void AddContact(Contact contact)
         {
-            addressBook.Add(contact.Email, contact);
+            try
+            {
+                addressBook.Add(contact.Email, contact);
+            } catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public Contact GetByEmail(string email)
